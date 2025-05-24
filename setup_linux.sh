@@ -15,7 +15,6 @@ mkdir cysic-verifier
 curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/verifier_linux >~/cysic-verifier/verifier
 curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/libdarwin_verifier.so >~/cysic-verifier/libdarwin_verifier.so
 curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/librsp.so >~/cysic-verifier/librsp.so
-curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/libzkp.so >~/cysic-verifier/libzkp.so
 
 # 第二段命令：创建配置文件
 cat <<EOF >~/cysic-verifier/config.yaml
