@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # 检查是否传入了参数
-if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <claim_reward_address> <eth_proof_endpoint>"
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <claim_reward_address>
   exit 1
 fi
 
 CLAIM_REWARD_ADDRESS=$1
-ETH_PROOF_ENDPOINT=$2
 
 # 第一段命令：删除旧的cysic-prover目录，创建新的目录，并下载必要的文件
 rm -rf ~/cysic-prover
@@ -43,11 +42,8 @@ server:
   # don't modify this
   cysic_endpoint: "https://ws-pre.prover.xyz"
 available_task_type:
-  - ethProof
   - scroll
-task_config:
-  eth_proof:
-    endpoint: "$ETH_PROOF_ENDPOINT"
+
 EOF
 
 # 第三段命令：设置执行权限并启动verifier

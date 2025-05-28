@@ -2,8 +2,8 @@
 
 # 检查是否传入了参数
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <claim_reward_address> <eth_proof_endpoint>"
-  exit 1
+    echo "Usage: $0 <claim_reward_address> <eth_proof_endpoint>"
+    exit 1
 fi
 
 CLAIM_REWARD_ADDRESS=$1
@@ -44,7 +44,6 @@ server:
   cysic_endpoint: "https://ws-pre.prover.xyz"
 available_task_type:
   - ethProof
-  - scroll
 task_config:
   eth_proof:
     endpoint: "$ETH_PROOF_ENDPOINT"
@@ -59,15 +58,15 @@ chmod +x ~/cysic-prover/start.sh
 # 询问用户是否运行 eth_dependency.sh
 read -p "do you want to setup the software env for eth proof, this will install sp1, cuda driver and docker for you. (y/n): " choice
 case "$choice" in
-    y|Y )
-        bash eth_dependency.sh
-        ;;
-    n|N )
-        echo "skip to run the eth_dependency.sh"
-        ;;
-    * )
-        echo "invalid choice input eth_dependency.sh"
-        ;;
+y | Y)
+    bash eth_dependency.sh
+    ;;
+n | N)
+    echo "skip to run the eth_dependency.sh"
+    ;;
+*)
+    echo "invalid choice input eth_dependency.sh"
+    ;;
 esac
 
 echo "Cysic prover setup is complete. Run ./start.sh to start the prover."

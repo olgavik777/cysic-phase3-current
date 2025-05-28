@@ -14,7 +14,10 @@ cd ~
 mkdir cysic-verifier
 if [[ $(uname -m) == "x86_64" ]]; then
   # Intel chip
-  echo "not support Intel chip"
+  # M series chip
+  curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/verifier_mac_intel >~/cysic-verifier/verifier_mac
+  curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/libzkp_intel.dylib >~/cysic-verifier/libzkp.dylib
+  curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/librsp_intel.dylib >~/cysic-verifier/librsp.dylib
 else
   # M series chip
   curl -L https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/verifier_mac >~/cysic-verifier/verifier_mac
@@ -40,7 +43,6 @@ claim_reward_address: "$CLAIM_REWARD_ADDRESS"
 
 server:
   # don't modify this
-  # cysic_endpoint: "https://api-pre.prover.xyz"
   cysic_endpoint: "https://ws-pre.prover.xyz"
 EOF
 
